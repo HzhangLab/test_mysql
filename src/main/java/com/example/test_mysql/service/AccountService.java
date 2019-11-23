@@ -41,6 +41,6 @@ public class AccountService {
     }
 
     public Student insertStudentIntoMongo(Student student){
-        return mongoTemplate.save(student , "student");
+        return mongoTemplate.insert(student , "student");
     }
 }
