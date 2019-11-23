@@ -90,7 +90,11 @@ public class StudentController {
 
     @RequestMapping(value = "/student/insertIntoMongo", method = RequestMethod.POST)
     public Boolean insertStudentIntoMongo(@RequestBody Student student){
-        accountService.insertStudentIntoMongo(student);
+        Student resultStudent = accountService.insertStudentIntoMongo(student);
+        if (resultStudent != null){
+            return true;
+        }
+        return false;
     }
 
 }
