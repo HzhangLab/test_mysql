@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.test_mysql.dao.StudentDao;
 import com.example.test_mysql.model.Student;
 import com.example.test_mysql.redis.RedisClient;
+import com.example.test_mysql.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ public class StudentController {
 
     @Autowired
     private RedisClient redisClient;
+
+    @Autowired
+    private AccountService accountService;
 
     //增
     @RequestMapping(value = "/student/insert", method = RequestMethod.POST)
@@ -82,7 +86,11 @@ public class StudentController {
             System.out.println("coupon已无余量");
         }
         return value;
+    }
 
+    @RequestMapping(value = "/student/insertIntoMongo", method = RequestMethod.POST)
+    public Boolean insertStudentIntoMongo(@RequestBody Student student){
+        accountService.insertStudentIntoMongo(student);
     }
 
 }
