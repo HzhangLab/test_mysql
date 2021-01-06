@@ -11,4 +11,6 @@ public class TestModel {
 
     private String modelName;
 
+    private String testTT;
+
 }
