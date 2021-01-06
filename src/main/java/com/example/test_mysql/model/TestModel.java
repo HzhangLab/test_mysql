@@ -13,4 +13,5 @@ public class TestModel {
 
     private String testTT;
 
+    private String testMM;
 }
