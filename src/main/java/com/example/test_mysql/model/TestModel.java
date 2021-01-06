@@ -10,5 +10,6 @@ public class TestModel {
     private String modelType;
 
     private String modelName;
-
+    
+    private String testMM;
 }
